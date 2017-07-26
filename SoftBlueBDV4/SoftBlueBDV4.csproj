@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34D45706-5DEE-4EAB-B2FD-8E19811889C6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SoftBlueBD</RootNamespace>
+    <AssemblyName>SoftBlueBD</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Softblue_logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedDataGridView">
+      <HintPath>..\..\..\..\.nuget\packages\ADGV\0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ElementyElektroniczneDataSetIndukcyjne.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElementyElektroniczneDataSetIndukcyjne.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElementyElektroniczneDataSetKondensatory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElementyElektroniczneDataSetKondensatory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElementyElektroniczneDataSetMechaniczne.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElementyElektroniczneDataSetMechaniczne.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElementyElektroniczneDataSetRezystory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElementyElektroniczneDataSetRezystory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElementyElektroniczneDataSetTEST.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElementyElektroniczneDataSetTEST.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElementyElektroniczneDataSetTranzystory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElementyElektroniczneDataSetTranzystory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElementyElektroniczneDataSetUklady.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElementyElektroniczneDataSetUklady.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElementyElektroniczneDataSetZalacza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElementyElektroniczneDataSetZalacza.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTEST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTEST.Designer.cs">
+      <DependentUpon>FormTEST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Indukcyjne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Indukcyjne.Designer.cs">
+      <DependentUpon>Indukcyjne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kondensatory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kondensatory.Designer.cs">
+      <DependentUpon>Kondensatory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mechaniczne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mechaniczne.Designer.cs">
+      <DependentUpon>Mechaniczne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rezystory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezystory.Designer.cs">
+      <DependentUpon>Rezystory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tranzystory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tranzystory.Designer.cs">
+      <DependentUpon>Tranzystory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uklady.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uklady.Designer.cs">
+      <DependentUpon>Uklady.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zlacza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zlacza.Designer.cs">
+      <DependentUpon>Zlacza.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTEST.resx">
+      <DependentUpon>FormTEST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Indukcyjne.resx">
+      <DependentUpon>Indukcyjne.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kondensatory.resx">
+      <DependentUpon>Kondensatory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mechaniczne.resx">
+      <DependentUpon>Mechaniczne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Rezystory.resx">
+      <DependentUpon>Rezystory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tranzystory.resx">
+      <DependentUpon>Tranzystory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uklady.resx">
+      <DependentUpon>Uklady.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zlacza.resx">
+      <DependentUpon>Zlacza.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetIndukcyjne.xsc">
+      <DependentUpon>ElementyElektroniczneDataSetIndukcyjne.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetIndukcyjne.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElementyElektroniczneDataSetIndukcyjne.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetIndukcyjne.xss">
+      <DependentUpon>ElementyElektroniczneDataSetIndukcyjne.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetKondensatory.xsc">
+      <DependentUpon>ElementyElektroniczneDataSetKondensatory.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetKondensatory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElementyElektroniczneDataSetKondensatory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetKondensatory.xss">
+      <DependentUpon>ElementyElektroniczneDataSetKondensatory.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetMechaniczne.xsc">
+      <DependentUpon>ElementyElektroniczneDataSetMechaniczne.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetMechaniczne.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElementyElektroniczneDataSetMechaniczne.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetMechaniczne.xss">
+      <DependentUpon>ElementyElektroniczneDataSetMechaniczne.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetRezystory.xsc">
+      <DependentUpon>ElementyElektroniczneDataSetRezystory.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetRezystory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElementyElektroniczneDataSetRezystory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetRezystory.xss">
+      <DependentUpon>ElementyElektroniczneDataSetRezystory.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetTEST.xsc">
+      <DependentUpon>ElementyElektroniczneDataSetTEST.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetTEST.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElementyElektroniczneDataSetTEST.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetTEST.xss">
+      <DependentUpon>ElementyElektroniczneDataSetTEST.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetTranzystory.xsc">
+      <DependentUpon>ElementyElektroniczneDataSetTranzystory.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetTranzystory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElementyElektroniczneDataSetTranzystory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetTranzystory.xss">
+      <DependentUpon>ElementyElektroniczneDataSetTranzystory.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetUklady.xsc">
+      <DependentUpon>ElementyElektroniczneDataSetUklady.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetUklady.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElementyElektroniczneDataSetUklady.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetUklady.xss">
+      <DependentUpon>ElementyElektroniczneDataSetUklady.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetZalacza.xsc">
+      <DependentUpon>ElementyElektroniczneDataSetZalacza.xsd</DependentUpon>
+    </None>
+    <None Include="ElementyElektroniczneDataSetZalacza.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElementyElektroniczneDataSetZalacza.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ElementyElektroniczneDataSetZalacza.xss">
+      <DependentUpon>ElementyElektroniczneDataSetZalacza.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ElementyElektronicznePOP.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ElementyElektronicznePOP_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ElementyElektronicznePOP.mdf</DependentUpon>
+    </Content>
+    <Content Include="Softblue_logo.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

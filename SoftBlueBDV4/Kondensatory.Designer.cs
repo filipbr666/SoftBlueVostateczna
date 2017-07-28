@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kondensatory));
             this.panel1 = new System.Windows.Forms.Panel();
             this.advancedDataGridView = new ADGV.AdvancedDataGridView();
-            this.elementyElektroniczneDataSetKondensatory = new SoftBlueBD.ElementyElektroniczneDataSetKondensatory();
+            this.LabelPodsumowanie = new System.Windows.Forms.Label();
             this.elementyElektroniczneBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.elementyElektroniczneDataSetKondensatory = new SoftBlueBD.ElementyElektroniczneDataSetKondensatory();
             this.elementyElektroniczneTableAdapter = new SoftBlueBD.ElementyElektroniczneDataSetKondensatoryTableAdapters.elementyelektroniczneTableAdapter();
             this.identyfikatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridComboBoxElement = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -47,10 +50,11 @@
             this.dostawcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ilośćDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalutaComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementyElektroniczneDataSetKondensatory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementyElektroniczneBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementyElektroniczneDataSetKondensatory)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,7 +65,7 @@
             this.panel1.Controls.Add(this.advancedDataGridView);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(906, 457);
+            this.panel1.Size = new System.Drawing.Size(906, 438);
             this.panel1.TabIndex = 0;
             // 
             // advancedDataGridView
@@ -84,13 +88,14 @@
             this.lokalizacjaDataGridViewTextBoxColumn,
             this.dostawcaDataGridViewTextBoxColumn,
             this.ilośćDataGridViewTextBoxColumn,
-            this.cenaDataGridViewTextBoxColumn});
+            this.cenaDataGridViewTextBoxColumn,
+            this.WalutaComboBox});
             this.advancedDataGridView.DataSource = this.elementyElektroniczneBindingSource;
             this.advancedDataGridView.DateWithTime = false;
             this.advancedDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.advancedDataGridView.Location = new System.Drawing.Point(0, 0);
             this.advancedDataGridView.Name = "advancedDataGridView";
-            this.advancedDataGridView.Size = new System.Drawing.Size(906, 457);
+            this.advancedDataGridView.Size = new System.Drawing.Size(906, 438);
             this.advancedDataGridView.TabIndex = 0;
             this.advancedDataGridView.TimeFilter = false;
             this.advancedDataGridView.SortStringChanged += new System.EventHandler(this.advancedDataGridView_SortStringChanged);
@@ -98,17 +103,26 @@
             this.advancedDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.advancedDataGridView_CurrentCellDirtyStateChanged);
             this.advancedDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.advancedDataGridView_DataError);
             this.advancedDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.advancedDataGridView_EditingControlShowing);
+            this.advancedDataGridView.SelectionChanged += new System.EventHandler(this.advancedDataGridView_SelectionChanged);
             this.advancedDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.advancedDataGridView_KeyDown);
             // 
-            // elementyElektroniczneDataSetKondensatory
+            // LabelPodsumowanie
             // 
-            this.elementyElektroniczneDataSetKondensatory.DataSetName = "ElementyElektroniczneDataSetKondensatory";
-            this.elementyElektroniczneDataSetKondensatory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.LabelPodsumowanie.AutoSize = true;
+            this.LabelPodsumowanie.Location = new System.Drawing.Point(13, 457);
+            this.LabelPodsumowanie.Name = "LabelPodsumowanie";
+            this.LabelPodsumowanie.Size = new System.Drawing.Size(0, 13);
+            this.LabelPodsumowanie.TabIndex = 1;
             // 
             // elementyElektroniczneBindingSource
             // 
             this.elementyElektroniczneBindingSource.DataMember = "elementyelektroniczne";
             this.elementyElektroniczneBindingSource.DataSource = this.elementyElektroniczneDataSetKondensatory;
+            // 
+            // elementyElektroniczneDataSetKondensatory
+            // 
+            this.elementyElektroniczneDataSetKondensatory.DataSetName = "ElementyElektroniczneDataSetKondensatory";
+            this.elementyElektroniczneDataSetKondensatory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // elementyElektroniczneTableAdapter
             // 
@@ -117,19 +131,24 @@
             // identyfikatorDataGridViewTextBoxColumn
             // 
             this.identyfikatorDataGridViewTextBoxColumn.DataPropertyName = "Identyfikator";
+            dataGridViewCellStyle1.NullValue = null;
+            this.identyfikatorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.identyfikatorDataGridViewTextBoxColumn.HeaderText = "Identyfikator";
             this.identyfikatorDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.identyfikatorDataGridViewTextBoxColumn.Name = "identyfikatorDataGridViewTextBoxColumn";
+            this.identyfikatorDataGridViewTextBoxColumn.ReadOnly = true;
             this.identyfikatorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // DataGridComboBoxElement
             // 
+            this.DataGridComboBoxElement.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DataGridComboBoxElement.DataPropertyName = "Element";
             this.DataGridComboBoxElement.HeaderText = "Element";
             this.DataGridComboBoxElement.MinimumWidth = 22;
             this.DataGridComboBoxElement.Name = "DataGridComboBoxElement";
             this.DataGridComboBoxElement.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridComboBoxElement.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.DataGridComboBoxElement.Width = 70;
             // 
             // wartośćDataGridViewTextBoxColumn
             // 
@@ -206,29 +225,43 @@
             // cenaDataGridViewTextBoxColumn
             // 
             this.cenaDataGridViewTextBoxColumn.DataPropertyName = "Cena";
+            dataGridViewCellStyle2.Format = "N2";
+            this.cenaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.cenaDataGridViewTextBoxColumn.HeaderText = "Cena";
             this.cenaDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.cenaDataGridViewTextBoxColumn.Name = "cenaDataGridViewTextBoxColumn";
             this.cenaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // WalutaComboBox
+            // 
+            this.WalutaComboBox.DataPropertyName = "Waluta";
+            this.WalutaComboBox.HeaderText = "Waluta";
+            this.WalutaComboBox.MinimumWidth = 22;
+            this.WalutaComboBox.Name = "WalutaComboBox";
+            this.WalutaComboBox.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.WalutaComboBox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Kondensatory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 481);
+            this.Controls.Add(this.LabelPodsumowanie);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(320, 310);
             this.Name = "Kondensatory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kondensatory";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Kondensatory_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Kondensatory_FormClosed);
             this.Load += new System.EventHandler(this.Kondensatory_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementyElektroniczneDataSetKondensatory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementyElektroniczneBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementyElektroniczneDataSetKondensatory)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -239,6 +272,7 @@
         private ElementyElektroniczneDataSetKondensatory elementyElektroniczneDataSetKondensatory;
         private System.Windows.Forms.BindingSource elementyElektroniczneBindingSource;
         private ElementyElektroniczneDataSetKondensatoryTableAdapters.elementyelektroniczneTableAdapter elementyElektroniczneTableAdapter;
+        private System.Windows.Forms.Label LabelPodsumowanie;
         private System.Windows.Forms.DataGridViewTextBoxColumn identyfikatorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn DataGridComboBoxElement;
         private System.Windows.Forms.DataGridViewTextBoxColumn wartośćDataGridViewTextBoxColumn;
@@ -251,5 +285,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dostawcaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ilośćDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn WalutaComboBox;
     }
 }

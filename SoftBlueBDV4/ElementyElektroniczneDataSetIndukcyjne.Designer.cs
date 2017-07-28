@@ -303,6 +303,8 @@ namespace SoftBlueBD {
             
             private global::System.Data.DataColumn columnCena;
             
+            private global::System.Data.DataColumn columnWaluta;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public elementyelektroniczneDataTable() {
@@ -434,6 +436,14 @@ namespace SoftBlueBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WalutaColumn {
+                get {
+                    return this.columnWaluta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -469,7 +479,7 @@ namespace SoftBlueBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public elementyelektroniczneRow AddelementyelektroniczneRow(string Element, string Wartość, string Obudowa, string Tolerancja, string Prąd, string Rezystancja, string Producent, string Lokalizacja, string Dostawca, int Ilość, string Cena) {
+            public elementyelektroniczneRow AddelementyelektroniczneRow(string Element, string Wartość, string Obudowa, string Tolerancja, string Prąd, string Rezystancja, string Producent, string Lokalizacja, string Dostawca, int Ilość, decimal Cena, string Waluta) {
                 elementyelektroniczneRow rowelementyelektroniczneRow = ((elementyelektroniczneRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -483,7 +493,8 @@ namespace SoftBlueBD {
                         Lokalizacja,
                         Dostawca,
                         Ilość,
-                        Cena};
+                        Cena,
+                        Waluta};
                 rowelementyelektroniczneRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowelementyelektroniczneRow);
                 return rowelementyelektroniczneRow;
@@ -525,6 +536,7 @@ namespace SoftBlueBD {
                 this.columnDostawca = base.Columns["Dostawca"];
                 this.columnIlość = base.Columns["Ilość"];
                 this.columnCena = base.Columns["Cena"];
+                this.columnWaluta = base.Columns["Waluta"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -552,13 +564,14 @@ namespace SoftBlueBD {
                 base.Columns.Add(this.columnDostawca);
                 this.columnIlość = new global::System.Data.DataColumn("Ilość", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIlość);
-                this.columnCena = new global::System.Data.DataColumn("Cena", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCena = new global::System.Data.DataColumn("Cena", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCena);
+                this.columnWaluta = new global::System.Data.DataColumn("Waluta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWaluta);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdentyfikator}, true));
                 this.columnIdentyfikator.AutoIncrement = true;
-                this.columnIdentyfikator.AutoIncrementSeed = -1;
-                this.columnIdentyfikator.AutoIncrementStep = -1;
+                this.columnIdentyfikator.AutoIncrementSeed = 1;
                 this.columnIdentyfikator.AllowDBNull = false;
                 this.columnIdentyfikator.Unique = true;
                 this.columnElement.MaxLength = 45;
@@ -570,7 +583,8 @@ namespace SoftBlueBD {
                 this.columnProducent.MaxLength = 45;
                 this.columnLokalizacja.MaxLength = 45;
                 this.columnDostawca.MaxLength = 45;
-                this.columnCena.MaxLength = 45;
+                this.columnIlość.DefaultValue = ((int)(0));
+                this.columnWaluta.MaxLength = 45;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -884,10 +898,10 @@ namespace SoftBlueBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cena {
+            public decimal Cena {
                 get {
                     try {
-                        return ((string)(this[this.tableelementyelektroniczne.CenaColumn]));
+                        return ((decimal)(this[this.tableelementyelektroniczne.CenaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Cena\' in table \'elementyelektroniczne\' is DBNull.", e);
@@ -895,6 +909,22 @@ namespace SoftBlueBD {
                 }
                 set {
                     this[this.tableelementyelektroniczne.CenaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Waluta {
+                get {
+                    try {
+                        return ((string)(this[this.tableelementyelektroniczne.WalutaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Waluta\' in table \'elementyelektroniczne\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableelementyelektroniczne.WalutaColumn] = value;
                 }
             }
             
@@ -1028,6 +1058,18 @@ namespace SoftBlueBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCenaNull() {
                 this[this.tableelementyelektroniczne.CenaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWalutaNull() {
+                return this.IsNull(this.tableelementyelektroniczne.WalutaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWalutaNull() {
+                this[this.tableelementyelektroniczne.WalutaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1202,10 +1244,11 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             tableMapping.ColumnMappings.Add("Dostawca", "Dostawca");
             tableMapping.ColumnMappings.Add("Ilość", "Ilość");
             tableMapping.ColumnMappings.Add("Cena", "Cena");
+            tableMapping.ColumnMappings.Add("Waluta", "Waluta");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `elementyelektroniczne` WHERE ((`Identyfikator` = @p1) AND ((@p2 = 1 AND `Element` IS NULL) OR (`Element` = @p3)) AND ((@p4 = 1 AND `Wartość` IS NULL) OR (`Wartość` = @p5)) AND ((@p6 = 1 AND `Obudowa` IS NULL) OR (`Obudowa` = @p7)) AND ((@p8 = 1 AND `Tolerancja` IS NULL) OR (`Tolerancja` = @p9)) AND ((@p10 = 1 AND `Prąd` IS NULL) OR (`Prąd` = @p11)) AND ((@p12 = 1 AND `Rezystancja` IS NULL) OR (`Rezystancja` = @p13)) AND ((@p14 = 1 AND `Producent` IS NULL) OR (`Producent` = @p15)) AND ((@p16 = 1 AND `Lokalizacja` IS NULL) OR (`Lokalizacja` = @p17)) AND ((@p18 = 1 AND `Dostawca` IS NULL) OR (`Dostawca` = @p19)) AND ((@p20 = 1 AND `Ilość` IS NULL) OR (`Ilość` = @p21)) AND ((@p22 = 1 AND `Cena` IS NULL) OR (`Cena` = @p23)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `elementyelektroniczne` WHERE ((`Identyfikator` = @p1) AND ((@p2 = 1 AND `Element` IS NULL) OR (`Element` = @p3)) AND ((@p4 = 1 AND `Wartość` IS NULL) OR (`Wartość` = @p5)) AND ((@p6 = 1 AND `Obudowa` IS NULL) OR (`Obudowa` = @p7)) AND ((@p8 = 1 AND `Tolerancja` IS NULL) OR (`Tolerancja` = @p9)) AND ((@p10 = 1 AND `Prąd` IS NULL) OR (`Prąd` = @p11)) AND ((@p12 = 1 AND `Rezystancja` IS NULL) OR (`Rezystancja` = @p13)) AND ((@p14 = 1 AND `Producent` IS NULL) OR (`Producent` = @p15)) AND ((@p16 = 1 AND `Lokalizacja` IS NULL) OR (`Lokalizacja` = @p17)) AND ((@p18 = 1 AND `Dostawca` IS NULL) OR (`Dostawca` = @p19)) AND ((@p20 = 1 AND `Ilość` IS NULL) OR (`Ilość` = @p21)) AND ((@p22 = 1 AND `Cena` IS NULL) OR (`Cena` = @p23)) AND ((@p24 = 1 AND `Waluta` IS NULL) OR (`Waluta` = @p25)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1402,11 +1445,29 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.SourceColumn = "Cena";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p24";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Waluta";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p25";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Waluta";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `elementyelektroniczne` (`Element`, `Wartość`, `Obudowa`, `Tolerancja" +
                 "`, `Prąd`, `Rezystancja`, `Producent`, `Lokalizacja`, `Dostawca`, `Ilość`, `Cena" +
-                "`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11)";
+                "`, `Waluta`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p" +
+                "12)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1485,9 +1546,16 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Cena";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Waluta";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `elementyelektroniczne` SET `Element` = @p1, `Wartość` = @p2, `Obudowa` = @p3, `Tolerancja` = @p4, `Prąd` = @p5, `Rezystancja` = @p6, `Producent` = @p7, `Lokalizacja` = @p8, `Dostawca` = @p9, `Ilość` = @p10, `Cena` = @p11 WHERE ((`Identyfikator` = @p12) AND ((@p13 = 1 AND `Element` IS NULL) OR (`Element` = @p14)) AND ((@p15 = 1 AND `Wartość` IS NULL) OR (`Wartość` = @p16)) AND ((@p17 = 1 AND `Obudowa` IS NULL) OR (`Obudowa` = @p18)) AND ((@p19 = 1 AND `Tolerancja` IS NULL) OR (`Tolerancja` = @p20)) AND ((@p21 = 1 AND `Prąd` IS NULL) OR (`Prąd` = @p22)) AND ((@p23 = 1 AND `Rezystancja` IS NULL) OR (`Rezystancja` = @p24)) AND ((@p25 = 1 AND `Producent` IS NULL) OR (`Producent` = @p26)) AND ((@p27 = 1 AND `Lokalizacja` IS NULL) OR (`Lokalizacja` = @p28)) AND ((@p29 = 1 AND `Dostawca` IS NULL) OR (`Dostawca` = @p30)) AND ((@p31 = 1 AND `Ilość` IS NULL) OR (`Ilość` = @p32)) AND ((@p33 = 1 AND `Cena` IS NULL) OR (`Cena` = @p34)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `elementyelektroniczne` SET `Element` = @p1, `Wartość` = @p2, `Obudowa` = @p3, `Tolerancja` = @p4, `Prąd` = @p5, `Rezystancja` = @p6, `Producent` = @p7, `Lokalizacja` = @p8, `Dostawca` = @p9, `Ilość` = @p10, `Cena` = @p11, `Waluta` = @p12 WHERE ((`Identyfikator` = @p13) AND ((@p14 = 1 AND `Element` IS NULL) OR (`Element` = @p15)) AND ((@p16 = 1 AND `Wartość` IS NULL) OR (`Wartość` = @p17)) AND ((@p18 = 1 AND `Obudowa` IS NULL) OR (`Obudowa` = @p19)) AND ((@p20 = 1 AND `Tolerancja` IS NULL) OR (`Tolerancja` = @p21)) AND ((@p22 = 1 AND `Prąd` IS NULL) OR (`Prąd` = @p23)) AND ((@p24 = 1 AND `Rezystancja` IS NULL) OR (`Rezystancja` = @p25)) AND ((@p26 = 1 AND `Producent` IS NULL) OR (`Producent` = @p27)) AND ((@p28 = 1 AND `Lokalizacja` IS NULL) OR (`Lokalizacja` = @p29)) AND ((@p30 = 1 AND `Dostawca` IS NULL) OR (`Dostawca` = @p31)) AND ((@p32 = 1 AND `Ilość` IS NULL) OR (`Ilość` = @p33)) AND ((@p34 = 1 AND `Cena` IS NULL) OR (`Cena` = @p35)) AND ((@p36 = 1 AND `Waluta` IS NULL) OR (`Waluta` = @p37)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1568,6 +1636,13 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Waluta";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1575,33 +1650,33 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Element";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Element";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p15";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Wartość";
+            param.SourceColumn = "Element";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p16";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Wartość";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p17";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1609,33 +1684,33 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p17";
+            param.ParameterName = "@p18";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Obudowa";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p18";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Obudowa";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p19";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Tolerancja";
+            param.SourceColumn = "Obudowa";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p20";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Tolerancja";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p21";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1643,33 +1718,33 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p21";
+            param.ParameterName = "@p22";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Prąd";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p22";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Prąd";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p23";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Rezystancja";
+            param.SourceColumn = "Prąd";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p24";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Rezystancja";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p25";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1677,33 +1752,33 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p25";
+            param.ParameterName = "@p26";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Producent";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p26";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Producent";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p27";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Lokalizacja";
+            param.SourceColumn = "Producent";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p28";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Lokalizacja";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p29";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1711,7 +1786,7 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p29";
+            param.ParameterName = "@p30";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1720,21 +1795,12 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p30";
+            param.ParameterName = "@p31";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Dostawca";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p31";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Ilość";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p32";
@@ -1743,9 +1809,18 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Ilość";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p33";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Ilość";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p34";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1754,11 +1829,28 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p34";
+            param.ParameterName = "@p35";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Cena";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p36";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Waluta";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p37";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Waluta";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -1776,9 +1868,8 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Identyfikator`, `Element`, `Wartość`, `Obudowa`, `Tolerancja`, `Prąd`, `R" +
-                "ezystancja`, `Producent`, `Lokalizacja`, `Dostawca`, `Ilość`, `Cena` FROM `eleme" +
-                "ntyelektroniczne`";
+            this._commandCollection[0].CommandText = "SELECT Identyfikator, Element, Wartość, Obudowa, Tolerancja, Prąd, Rezystancja, P" +
+                "roducent, Lokalizacja, Dostawca, Ilość, Cena, Waluta FROM elementyelektroniczne";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1839,7 +1930,7 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, string p3, string p5, string p7, string p9, string p11, string p13, string p15, string p17, string p19, global::System.Nullable<int> p21, string p23) {
+        public virtual int Delete(int p1, string p3, string p5, string p7, string p9, string p11, string p13, string p15, string p17, string p19, global::System.Nullable<int> p21, string p23, string p25) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
             if ((p3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1929,6 +2020,14 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(p23));
             }
+            if ((p25 == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(p25));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1949,7 +2048,7 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, string p3, string p4, string p5, string p6, string p7, string p8, string p9, global::System.Nullable<int> p10, string p11) {
+        public virtual int Insert(string p1, string p2, string p3, string p4, string p5, string p6, string p7, string p8, string p9, global::System.Nullable<int> p10, string p11, string p12) {
             if ((p1 == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2016,6 +2115,12 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = ((string)(p11));
             }
+            if ((p12 == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(p12));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2048,18 +2153,20 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
                     string p9, 
                     global::System.Nullable<int> p10, 
                     string p11, 
-                    int p12, 
-                    string p14, 
-                    string p16, 
-                    string p18, 
-                    string p20, 
-                    string p22, 
-                    string p24, 
-                    string p26, 
-                    string p28, 
-                    string p30, 
-                    global::System.Nullable<int> p32, 
-                    string p34) {
+                    string p12, 
+                    int p13, 
+                    string p15, 
+                    string p17, 
+                    string p19, 
+                    string p21, 
+                    string p23, 
+                    string p25, 
+                    string p27, 
+                    string p29, 
+                    string p31, 
+                    global::System.Nullable<int> p33, 
+                    string p35, 
+                    string p37) {
             if ((p1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2126,94 +2233,108 @@ namespace SoftBlueBD.ElementyElektroniczneDataSetIndukcyjneTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(p12));
-            if ((p14 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            if ((p12 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(p14));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
             }
-            if ((p16 == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(p16));
-            }
-            if ((p18 == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(p13));
+            if ((p15 == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(p18));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(p15));
             }
-            if ((p20 == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(p20));
-            }
-            if ((p22 == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            if ((p17 == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(p22));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(p17));
             }
-            if ((p24 == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(p24));
-            }
-            if ((p26 == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            if ((p19 == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(p26));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(p19));
             }
-            if ((p28 == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(p28));
-            }
-            if ((p30 == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            if ((p21 == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(p30));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(p21));
             }
-            if ((p32.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(p32.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            if ((p34 == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            if ((p23 == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(p34));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(p23));
+            }
+            if ((p25 == null)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(p25));
+            }
+            if ((p27 == null)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(p27));
+            }
+            if ((p29 == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(p29));
+            }
+            if ((p31 == null)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(p31));
+            }
+            if ((p33.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(p33.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((p35 == null)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(p35));
+            }
+            if ((p37 == null)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(p37));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

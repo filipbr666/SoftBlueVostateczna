@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;//biblioteka do ustawienia formatów
+using System.Globalization;//biblitek do ustawienia formatu
 
 namespace SoftBlueBD
 {
@@ -14,13 +16,14 @@ namespace SoftBlueBD
         public Form1()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");//ustawienie formatu. Ważne bo MySQL nie przyjmuje przecinków w cenie....
         }
-
+        
         private void KondensatoryButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Kondensatory f = new Kondensatory();
-            f.Show();
+            this.Hide();                                                    //ten Form schowaj
+            Kondensatory f = new Kondensatory();                            //ten form ustaw
+            f.Show();                                                       //i go pokaż
         }
 
         private void IndukcyjneButton_Click(object sender, EventArgs e)
